@@ -1,0 +1,44 @@
+@import "foundation-sites/scss/foundation.scss";
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+@include foundation-menu;
+
+#navigation-bar {
+  position: fixed;
+  width: 100%;
+  background: #FAFAFADD;
+}
+
+#nav-ico-block {
+  a {
+    text-decoration: none;
+    color: #151515;
+  }
+}
+
+#site-ico {
+  margin: 0;
+  font-size: 2em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  
+  .ico-last {
+    font-weight: 500;
+  }
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #151515;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.menu li a:hover {
+  font-weight: 700;
+}
