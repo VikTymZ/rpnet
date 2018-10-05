@@ -1,0 +1,163 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'quill/dist/quill.snow.css';
+
+body {
+  background-color: #F0F0F0;
+}
+
+.button,
+thead {
+  background-color: #3A6199!important;
+  color: #FAFAFA!important;
+}
+
+#navigation-bar {
+  background-color: #252525;
+  z-index: 999999;
+}
+
+#nav-ico-block a {
+  color: #FAFAFA;
+}
+
+#nav-ico-block a,
+#nav-ico-block a h1 {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+#dashboard {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+#editor {
+  input {
+    width: 100%;
+    padding: 10px;
+    background: #FAFAFA;
+    color: #252525;
+    border: 1px solid #CCC;
+  }
+
+  #meta-permalink {
+    color: #DADADA;
+  }
+}
+
+#content-editor-container {
+  background: #FAFAFA;
+  margin: 20px auto;
+
+  #content-editor {
+    height: 50vh;
+    min-height: 400px;
+  }
+}
+
+.editor-widget {
+   margin-top: 20px;
+  .tags-widget {
+  }
+
+}
+
+
+#post-list {
+  list-style: none;
+  margin: 0;
+
+  .post-list-header {
+    th {
+      padding: 5px 10px;
+    }
+  }
+
+  .post-item {
+    td {
+      padding: 5px 10px;
+    }
+
+    .post-title {
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
+
+  .post-list-header {
+    background: #3A6199;
+    color: #FAFAFAFA;
+
+    .post-title {
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+#post-editor {
+  max-width: 1000px;
+
+  input[type=text],
+  #content-editor,
+  .ql-toolbar {
+    background: #FAFAFA;
+  }
+
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #252525;
+    padding: 10px;
+    border: 1px solid #CCC;
+  }
+
+  .button-group {
+    margin: 0;
+  }
+
+  .editor-widget {
+    padding: 0;
+    margin: 0 0 20px;
+  }
+
+  .editor-widget-header,
+  .editor-widget-body {
+    padding: 5px 20px;
+  }
+
+  .editor-widget-header {
+    border-bottom: 1px solid #CCC;
+  }
+
+  .editor-widget-title {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  #post-meta-info {
+    ul {
+      list-style: none;
+      margin: 0 0 10px;
+
+      li p {
+	font-size: 0.8em;
+	margin-bottom: 0;
+      }
+    }
+
+    .button-group {
+      .button {
+        margin: 0;
+      }
+    }
+  }
+}
+

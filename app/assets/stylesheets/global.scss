@@ -5,6 +5,16 @@
 @include foundation-flex-grid;
 @include foundation-flex-classes;
 @include foundation-menu;
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-table;
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+  background: #F2F2F2;
+}
 
 #navigation-bar {
   position: fixed;
@@ -37,8 +47,41 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
+  transition: 0.5s
 }
 
 .menu li a:hover {
-  font-weight: 700;
+  color: #3A6199;
+  transition: 0.5s
+}
+
+#auth-box {
+  border: 1px solid #858585;
+  border-radius: 5px;
+  margin: 20vh auto auto;
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+
+  .title {
+    text-transform: uppercase;
+    border-bottom: 2px solid #252525;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  form {
+    input[type=email],
+    input[type=password] {
+      width: 100%;
+      background: #FAFAFA;
+      color: #353535;
+      border: 1px solid #858585;
+      border-radius: 2px;
+    }
+  }
 }

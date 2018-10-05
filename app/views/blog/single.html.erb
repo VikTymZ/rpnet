@@ -1,0 +1,68 @@
+<% if !@post.nil? %>
+<div class="post-single">
+
+  <div class="post-head">
+
+    <div class="meta-container">
+      <div class="row">
+        <div class="columns small-12">
+          <h1 class="title"><%= @post.title %></h1>
+          <ul class="meta-tags">
+          <% @post.tags.each do |tag| %>
+            <li><a href=""><%= tag.name %></a></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-head-heroes" style="background-image: url(<%= @post.thumb_url.nil? ? image_url("no-thumbnail.jpg") : @post.thumb_url %>)">
+    </div>
+  </div>
+
+  <div class="post-body">
+    <div class="row">
+      <div class="columns small-12">
+        <%= @post.content.html_safe %>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-foot-note">
+    <div class="row">
+      <div class="columns small-12">
+        <div class="callout">
+          SoA
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comment-section">
+    <div class="row">
+      <div class="columns small-12">
+         <div id="disqus_thread"></div>
+
+<script>
+var disqus_config = function () {
+this.page.url = "https://rizkiepratama.net/blog/<%= @post.slug %>"; 
+this.page.identifier = "blog_id_<%= @post.id %>_<%= @post.slug %>"; 
+};
+
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://viktymz.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<% end %>
+

@@ -1,3 +1,129 @@
-// Place all the styles related to the Blog controller here.
-// They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#blog-body {
+  min-height: 95vh;
+  padding-top: 60px;
+
+  .row {
+    max-width: 1000px;
+  }
+
+  .post-feed {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .post-single {
+    padding-top: 90px;
+    padding-bottom: 60px;
+  }
+}
+
+.post-card {
+  margin-bottom: 25px;
+  display: flex;
+  border: 1px solid #DADADA;
+  border-radius: 3px;
+  background: #FAFAFA;
+}
+
+.thumb-box ,
+.preview-box {
+  margin: 15px;
+
+  img {
+    border-radius: 3px;
+  }
+}
+
+.preview-box {
+  .title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 auto 5px;
+
+    a {
+      color: #252525;
+    }
+  }
+
+  .content {
+    color: #858585;
+    font-size: 0.8em;
+    text-align: justify;
+  } 
+}
+
+#blog-footer {
+  background-color: #252525;
+
+  .foot-note {
+    text-align: right;
+    padding: 20px 0;
+    color: #FAFAFA;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    a {
+      color: #858585;
+      font-weight: bold;
+    }
+  }
+}
+
+.post-single {
+   .meta-container {
+     max-width: 650px;
+     margin: auto;
+
+     .meta-tags {
+       list-style: none;
+       margin: 0;
+
+       li {
+         display: inline-block;
+       }
+
+       li a {
+         padding: 2px 9px 4px 7px;
+         font-size: 0.6em;
+         border: 1px solid #F5F5F5;
+         border-radius: 3px;
+         color: #858585;
+         background: #F5F5F5;
+         transition: 0.5s;
+       }
+
+       li a:hover {
+         background: #DFDFDF;
+         transition: 0.5s;
+       }
+     }
+   }
+
+  .post-head {
+    .title {
+      margin: 0;
+      font-weight: bold;
+      line-height: 1em;
+    }
+  }
+
+  .post-head-heroes {
+    min-height: 70vh;
+    width: 100%;
+    background: no-repeat center center;
+    background-size: cover;
+    margin-bottom: 60px;
+    margin-top: 30px;
+   }
+
+  .post-body,
+  .post-foot-note,
+  .comment-section {
+    max-width: 650px;
+    margin: auto auto 30px;
+  }
+
+  .comment-section {
+  }
+}

@@ -1,1 +1,22 @@
-Blog
+<div class="row">
+  <div class="columns small-12 medium-8">
+    <% @posts.each do |p| %>
+    <div id="post-<%= p.id %>" class="post-card">
+      <div class="thumb-box small-12 medium-4">
+	<a href="/blog/<%= p.slug %>">
+	  <% if p.thumb_url.nil? %>
+	    <img src="<%= image_url('no-thumbnail.jpg') %>">
+	  <% end %>
+	</a>
+      </div>
+      <div class="preview-box">
+	<h4 class="title"><a href="/blog/<%= p.slug %>"><%= p.title  %></a></h4>
+	<div class="content">
+	  <p id="post-desc-<%= p.id %>"><%= !p.content.nil? ? strip_tags(p.content[0..150].gsub(/\s\w+$/,'...')) : "" %></p>
+	  <small>Posted on <%= p.created_at.strftime("%d %B %Y") %></small>
+	</div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

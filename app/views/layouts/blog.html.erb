@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Rizkie Pratama - Welcome</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag  'global' %>
+    <%= stylesheet_link_tag  'blog' %>
+    <%= javascript_pack_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav id="navigation-bar">
+      <div class="row align-middle">
+        <div id="nav-ico-block" class="columns medium-4 small-12">
+          <a href=""><h1 id="site-ico">Rizkie <span class="ico-last">Pratama</span></h1></a>
+        </div>
+        <div id="nav-menu-block" class="columns medium-8">
+	  <ul id="nav-menu" class="menu align-right">
+	    <li><a href="/">Home</a></li>
+	    <li><a href="/blog">Blog</a></li>
+	    <li><a href="/blog/rss">RSS FEED</a></li>
+	  </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div id="blog-body">
+      <%= yield %>
+    </div>
+
+    <footer id="blog-footer">
+      <div class="row">
+        <div class="columns small-12">
+          <div class="foot-note">
+            <span>&copy 2018 Rizkie Pratama | <a href="#">Contact</a></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- DISQUS -->
+    <script id="dsq-count-scr" src="//viktymz.disqus.com/count.js" async></script>
+  </body>
+</html>

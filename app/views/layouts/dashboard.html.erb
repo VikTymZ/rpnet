@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Rizkie Pratama - Welcome</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag  'global' %>
+    <%= stylesheet_link_tag  'dashboard' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,800" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav id="navigation-bar">
+      <div class="row align-middle align-center">
+        <div id="nav-ico-block" class="columns medium-2 small-12">
+        </div>
+        <div id="nav-ico-block" class="columns medium-8 small-12">
+          <a href="/dashboard"><h1 id="site-ico">Rizkie <span class="ico-last">Pratama</span></h1></a>
+        </div>
+        <div id="nav-ico-block" class="columns medium-2 small-12">
+        </div>
+      </div>
+    </nav>
+
+    <div id="dashboard">
+      <%= yield %>
+    </div>
+
+    <%= javascript_pack_tag 'dashboard' %>
+  </body>
+</html>
+
