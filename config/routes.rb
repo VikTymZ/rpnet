@@ -7,12 +7,12 @@ Rails.application.routes.draw do
 
     get '/dashboard', to: 'dashboard#index'
     get '/dashboard/post/new', to: 'dashboard#new'
-    get '/dashboard/post/edit', to: 'dashboard#edit'
+    get '/dashboard/post/edit/:id', to: 'dashboard#edit'
 
     post '/post', to: 'post#get'
     post '/post/create', to: 'post#create'
-    post '/post/edit', to: 'post#edit'
-    post '/post/remove', to: 'post#remove'
+    post '/post/edit/:id', to: 'post#edit'
+    delete '/post/remove', to: 'post#remove'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

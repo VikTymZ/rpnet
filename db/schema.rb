@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_100113) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "author_id"
+    t.integer "user_id"
     t.string "thumb_url"
     t.string "slug"
     t.boolean "is_published"

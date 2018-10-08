@@ -3,6 +3,10 @@ class BlogController < ApplicationController
 
   def index
     @posts = Post.where(is_published: true).last(5).reverse
+    @tags = Tag.all
+  end
+
+  def search_tag
   end
 
   def single

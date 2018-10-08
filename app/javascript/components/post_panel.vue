@@ -13,6 +13,7 @@
 	<td>Tags</td>
 	<td>Status</td>
 	<td>Published At</td>
+	<td>Action</td>
       </thead>
       <tbody>
 	<tr v-for="post in posts">
@@ -26,6 +27,10 @@
           </td>
 	  <td>{{post.is_published ? "Published" : "Drafted"}}</td>
 	  <td>{{post.created_at}}</td>
+	  <td>
+            <a v-bind:href="'/dashboard/post/edit/' + post.id"><i class="fas fa-edit"></i></a>
+	    <a v-on:click="removePost(post.id)"><i class="fas fa-trash-alt"></i></a>
+          </td>
 	</tr>
       </tbody>
     </table>
@@ -58,6 +63,18 @@ export default {
       ).then(response => {
         this.posts = response.data.post;
       });
+    },
+    removePost: function(post_id) {
+      axios.delete(
+        '/post/remove',
+        {
+          params: {id: post_id},
+          headers: {
+            'X-CSRF-TOKEN' : this.token
+          }
+        }
+      )
+      window.location = '/dashboard'
     }
   },
   mounted() {

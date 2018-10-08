@@ -17,15 +17,13 @@ class PostController < ApplicationController
   end
 
   def create
-    p current_user
     if user_signed_in?
       post = Post.new(params.require(:post).permit(:title,:content,:tags_str, :is_published))
-      post.is_published = true
-      post.author_id = current_user.id
+      post.user = current_user
       post.slug = post.title.parameterize()
 
       # Make Unique Identifier for Post with same Title (Just In Case)
-      if !Post.where(slug: post.slug).nil?
+      if !Post.where(slug: post.slug).empty?
 	post.slug += DateTime.now.strftime("%d%m%y")
       end
 
@@ -34,6 +32,8 @@ class PostController < ApplicationController
 	  f.json { render :json => { message: "Remove Success!" } }
 	  f.html { redirect_to dashboard_path and return }
 	end
+      else
+        p post.errors
       end
     else
       respond_to do |f|
@@ -44,14 +44,30 @@ class PostController < ApplicationController
   end
 
   def edit
+    if user_signed_in?
+      post = Post.find_by(:id => params[:id])
+      if post.update(params.require(:post).permit(:title, :content, :tags_str, :is_published))
+	respond_to do |f|
+	  f.json { render :json => { message: "Post Successfuly Updated!" } }
+	  f.html { redirect_to dashboard_path and return }
+	end
+      else
+	respond_to do |f|
+	  f.json { render :json => { message: "Failed to Update Post!", errors: post.errors } }
+	  f.html { redirect_to dashboard_path and return }
+	end
+      end
+    end
   end
 
-  def destroy
-    post = Post.find_by(id: params[:id])
-    if !post.nil? && post.destroy
-      respond_to do |f|
-        f.html { redirect_to dashboard_path and return }
-        f.json { render :json => { message: "Remove Success!" } }
+  def remove
+    if user_signed_in?
+      post = Post.find_by(id: params[:id])
+      if !post.nil? && post.destroy
+	respond_to do |f|
+	  f.html { redirect_to dashboard_path and return }
+	  f.json { render :json => { message: "Remove Success!" } }
+	end
       end
     end
   end

@@ -53,7 +53,7 @@ import Quill from 'quill';
 
 export default({
   props: {
-    post: null,
+    post_json: null,
     target: null,
     token: null
   },
@@ -69,6 +69,14 @@ export default({
       theme: "snow",
       placeholder: "Write Something Incredible..."
     });
+
+    if(this.post_json != null) {
+      this.post = JSON.parse(this.post_json);
+      this.title = this.post.title;
+      this.permalink = this.post.slug;
+      this.content = this.editor.root.innerHTML = this.post.content;
+      this.tags = this.post.tags.map(tag => tag.name).join(',')
+    }
 
     this.editor.on('text-change', function() {
       this.content = this.editor.root.innerHTML
@@ -87,7 +95,8 @@ export default({
       tags: null,
       permalink: null,
       title: null,
-      content: null
+      content: null,
+      post: null,
     }
   }
 })
