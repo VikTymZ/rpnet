@@ -128,9 +128,12 @@ thead {
     margin: 0 0 20px;
   }
 
-  .editor-widget-header,
+  .editor-widget-header {
+    padding: 7px 20px;
+  }
+
   .editor-widget-body {
-    padding: 5px 20px;
+    padding: 15px 20px;
   }
 
   .editor-widget-header {
@@ -161,3 +164,23 @@ thead {
   }
 }
 
+#thumbnail-widget {
+  input[type=file] {
+    font-size: 0.6em;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    margin-bottom: 10px;
+  }
+
+}
+
+#media-explorer-empty {
+  text-align: center;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+  }
+}

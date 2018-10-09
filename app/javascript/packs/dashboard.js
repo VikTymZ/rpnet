@@ -5,6 +5,9 @@ import Dashboard from '../layouts/dashboard.vue';
 import PostEditor from 'components/post_editor.vue';
 import PostPanel from 'components/post_panel.vue';
 
+import Vuedals from 'vuedals';
+Vue.use(Vuedals);
+
 Vue.component('post-editor', PostEditor);
 Vue.component('post-panel', PostPanel);
 

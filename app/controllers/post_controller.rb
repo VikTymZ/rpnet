@@ -18,7 +18,7 @@ class PostController < ApplicationController
 
   def create
     if user_signed_in?
-      post = Post.new(params.require(:post).permit(:title,:content,:tags_str, :is_published))
+      post = Post.new(params.require(:post).permit(:title,:content,:tags_str, :is_published, :thumb_url))
       post.user = current_user
       post.slug = post.title.parameterize()
 
@@ -46,7 +46,7 @@ class PostController < ApplicationController
   def edit
     if user_signed_in?
       post = Post.find_by(:id => params[:id])
-      if post.update(params.require(:post).permit(:title, :content, :tags_str, :is_published))
+      if post.update(params.require(:post).permit(:title, :content, :tags_str, :is_published, :thumb_url))
 	respond_to do |f|
 	  f.json { render :json => { message: "Post Successfuly Updated!" } }
 	  f.html { redirect_to dashboard_path and return }

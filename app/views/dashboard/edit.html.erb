@@ -1,4 +1,4 @@
 <div id="post-editor" class="row">
-  <post-editor target="/post/edit/<%= @post.id %>" token="<%= form_authenticity_token %>" post_json="<%= @post.to_json(:include => :tags) %>"></post-editor>
+  <post-editor target="/post/edit/<%= @post.id %>" token="<%= form_authenticity_token %>" post_json="<%= @post.to_json(:include => :tags) %>" xtoken="<%= session[:_csrf_token] %>"></post-editor>
 </div>
 

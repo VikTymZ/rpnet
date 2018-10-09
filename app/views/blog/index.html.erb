@@ -4,9 +4,7 @@
     <div id="post-<%= p.id %>" class="post-card row">
       <div class="thumb-box small-12 medium-3">
 	<a href="/blog/<%= p.slug %>">
-	  <% if p.thumb_url.nil? %>
-	    <img src="<%= image_url('no-thumbnail.jpg') %>">
-	  <% end %>
+	  <img src="<%= p.thumb_url %>">
 	</a>
       </div>
       <div class="preview-box columns small-12 medium-9">

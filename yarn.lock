@@ -6109,9 +6109,15 @@ vue2-datatable-component@^2.3.1:
   dependencies:
     lodash "^4.17.4"
 
-vue@^2.5.17:
+vue@^2.1.10, vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
+
+vuedals@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/vuedals/-/vuedals-1.7.0.tgz#22d35db165382e139bc98b3cac7faa1fe3fe4d0c"
+  dependencies:
+    vue "^2.1.10"
 
 watchpack@^1.4.0:
   version "1.6.0"

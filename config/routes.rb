@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get '/dashboard/post/new', to: 'dashboard#new'
     get '/dashboard/post/edit/:id', to: 'dashboard#edit'
 
+    post '/media', to: 'media#fetch'
+    post '/media/upload', to: 'media#upload'
+
     post '/post', to: 'post#get'
     post '/post/create', to: 'post#create'
     post '/post/edit/:id', to: 'post#edit'
