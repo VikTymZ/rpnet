@@ -24,5 +24,6 @@ Rails.application.routes.draw do
 
   get '/about', to: 'landing#about'
   get '/blog', to: 'blog#index'
+  get '/blog/feed', to: 'blog#feed'
   get '/blog/:slug', to: 'blog#single'
 end

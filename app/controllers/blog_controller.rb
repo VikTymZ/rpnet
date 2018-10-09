@@ -15,4 +15,14 @@ class BlogController < ApplicationController
 
   def search
   end
+
+  def feed
+    @posts = Post.where(is_published: true).last(5).reverse
+
+    respond_to do |format|
+      format.html { return redirect_to root_path }
+      format.xml { render :layout => false }
+      format.rss { render :layout => false, :template => 'blog/feed.xml.builder' }
+    end
+  end
 end
