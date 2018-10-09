@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'landing#index'
+
   devise_for :users, skip: [:sessions]
   as :user do
     get '/login', to: 'devise/sessions#new', as: :new_user_session
@@ -17,13 +20,9 @@ Rails.application.routes.draw do
     post '/post/edit/:id', to: 'post#edit'
     delete '/post/remove', to: 'post#remove'
   end
-  
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'landing#index'
-
-  get '/about', to: 'landing#about'
   get '/blog', to: 'blog#index'
+  get '/blog/tags/:tag', to: 'blog#search_tag'
   get '/blog/feed', to: 'blog#feed'
   get '/blog/:slug', to: 'blog#single'
 end

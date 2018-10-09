@@ -27,7 +27,7 @@
       <div id="tags-list-container">
         <ul id="tags-list">
           <% @tags.each do |tag| %>
-          <li><a href="/blog/tags/"><%= tag.name %></a></li>
+          <li><a href="/blog/tags/<%= URI.encode(tag.name.downcase) %>"><%= tag.name %></a></li>
           <% end %>
         </ul>
       </div>

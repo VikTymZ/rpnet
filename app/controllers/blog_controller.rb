@@ -7,6 +7,9 @@ class BlogController < ApplicationController
   end
 
   def search_tag
+    @posts = Post.joins(:tags).where('lower(tags.name) = ?', URI.decode(params[:tag]).downcase).last(5).reverse
+    @tags = Tag.all
+    render :template => 'blog/index'
   end
 
   def single
