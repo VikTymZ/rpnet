@@ -11,37 +11,39 @@
 </div>
 
 <div id="about">
-  <div class="row align-middle">
+  <div class="row align-stretch">
     <div class="columns small-12">
-      <h2>A Brief Introduction</h2>
-    </div>
-    <div class="columns small-12 medium-6">
-      <div id="bi-profile-pic-container">
-        <div id="bi-profile-pic" style="background-image: url(<%= image_url("bi_profile.jpg") %>)">
-        </div>
-      </div>
-    </div>
-    <div class="columns small-12 medium-6">
-      <div id="bi-profile-desc-container">
-        <div id="bi-profile-desc">
-          <p>Hello! :)</p>
-          <p>My Name is Rizkie Yudha Pratama, I'am Otaku who love Japanese Pop-Culture that also love to Build and create something random on his spare time.</p>
-          <p>Have been working with C/C++, Ruby, and Javascript most of the times, but i also encouraged to try and learn new things.</p>
+      <div id="bi-profile" class="row align-stretch">
+	<div class="columns small-12">
+	  <h2>A Brief Introduction</h2>
+	</div>
+	<div class="columns small-12 medium-6">
+	  <div id="bi-profile-pic-container">
+	    <div id="bi-profile-pic" style="background-image: url(<%= image_url("bi_profile.jpg") %>)">
+	    </div>
+	  </div>
+	</div>
+	<div class="columns small-12 medium-6">
+	  <div id="bi-profile-desc-container">
+	    <div id="bi-profile-desc">
+	      <p>Hello! :)</p>
+	      <p>My Name is Rizkie Yudha Pratama, I'am Otaku who love Japanese Pop-Culture that also love to Build and create something random on his spare time.</p>
+	      <p>Have been working with C/C++, Ruby, and Javascript most of the times, but i also encouraged to try and learn new things.</p>
+	    </div>
+	  </div>
 	</div>
       </div>
     </div>
+
     <div class="columns small-12">
       <div id="showcase-container">
+        <!-- SHOWCASE START -->
         <div id="showcase">
-	  <h2 id="showcase-heading">Recent Projects</h2>
+          <div class="row align-stretch">
+	    <h2 id="showcase-heading" class="columns small-12">Recent Projects</h2>
 
-          <div class="row align-middle">
-            <div class="columns small-12 medium-6">
-                <div class="logo-cover right-side" style="background-color: #252525">
-                   <div class="center-aligner">
-                     <img id="ico-alterpass" src="<%= image_url("logo_alterpass.png") %>">
-                   </div>
-                </div>
+            <div class="columns small-12 medium-6 logo-cover">
+	       <img id="ico-alterpass" src="<%= image_url("logo_alterpass.png") %>">
             </div>
             <div class="columns small-12 medium-6">
               <div class="porto-desc-block">
@@ -54,7 +56,12 @@
                   </div>
               </div>
             </div>
+          </div>
 
+          <div class="row align-stretch reverse">
+            <div class="columns small-12 medium-6 logo-cover">
+	       <img id="ico-byf">
+            </div>
             <div class="columns small-12 medium-6">
               <div class="porto-desc-block">
                   <h6>Mobile Games</h6>
@@ -66,20 +73,11 @@
                   </div>
               </div>
             </div>
-            <div class="columns small-12 medium-6">
-                <div class="logo-cover right-side" style="background-color: #252525">
-                   <div class="center-aligner">
-                     <img id="ico-byf">
-                   </div>
-                </div>
-            </div>
+	  </div>
 
-            <div class="columns small-12 medium-6">
-                <div class="logo-cover right-side" style="background-color: #252525">
-                   <div class="center-aligner">
-                     <img id="ico-nessaweb" src="<%= image_url("nessaweb.png") %>">
-                   </div>
-                </div>
+          <div class="row align-stretch">
+            <div class="columns small-12 medium-6 logo-cover">
+	       <img id="ico-nessaweb" src="<%= image_url("nessaweb.png") %>">
             </div>
             <div class="columns small-12 medium-6">
               <div class="porto-desc-block">
@@ -92,9 +90,10 @@
                   </div>
               </div>
             </div>
-            <div id="showcase-footer" class="columns small-12"></div>
-          </div>
+	    <div id="showcase-footer" class="columns small-12"></div>
+	  </div>
 	</div>
+        <!-- SHOWCASE END -->
       </div>
     </div>
   </div>

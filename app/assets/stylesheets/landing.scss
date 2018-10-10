@@ -48,6 +48,10 @@
     padding-left: 20px;
   }
 
+  #bi-profile {
+     margin-bottom: 40px;
+  }
+
   #bi-profile-pic {
     display: block;
     content: "";
@@ -88,7 +92,7 @@
     }
 
     #showcase-heading {
-      margin: 60px -15px 0;
+      margin: 0;
     }
 
     #showcase-footer {
@@ -96,33 +100,29 @@
       margin: 0;
       padding: 0;
     }
-
-    .columns {
-      padding: 0;
-    }
   }
+}
+
+.row.reverse {
+  flex-direction:row-reverse;
 }
 
 .logo-cover {
-  .center-aligner {
-    width: fit-content;
+  background: #252525;
+  min-height: 300px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    display: inline-block;
     width: -moz-fit-content;
-    margin: auto;
-    padding: 15px 50px;
+    width: fit-content;
   }
 }
 
-#ico-alterpass {
-  padding: 135px 50px;
-}
-
-#ico-nessaweb {
-  padding: 50px 50px;
-}
-
-#ico-byf {
-  padding: 150px 50px;
-}
 
 
 .image-cover {
