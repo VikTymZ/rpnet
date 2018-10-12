@@ -8,6 +8,10 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.5.1-node-browsers
+         environment:
+           RAILS_ENV: test
+           RACK_ENV: test
+           RPNET_DATABASE_USER: cci_test
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -15,7 +19,7 @@ jobs:
        - image: circleci/postgres:10.5-alpine
          environment:
            POSTGRES_USER: cci_test
-           POSTGRES_DB: cci-test_db
+           POSTGRES_DB: rpnet_test
 
     working_directory: ~/repo
 
