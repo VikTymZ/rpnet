@@ -70,3 +70,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "foreman", "~> 0.64.0"
 
 gem "devise", "~> 4.5"
+
+gem 'font-awesome-sass'

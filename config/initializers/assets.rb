@@ -16,4 +16,3 @@ Rails.application.config.assets.precompile += %w( landing.css )
 Rails.application.config.assets.precompile += %w( dashboard.css )
 Rails.application.config.assets.precompile += %w( blog.css )
 Rails.application.config.assets.precompile += %w( global.css )
-
