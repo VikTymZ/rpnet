@@ -5,6 +5,13 @@
     <title>Rizkie Pratama - Welcome</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta property="og:site_name" content="Rizkie Pratama Blog" />
+    <meta property="og:url:domain" content="<%= request.base_url %>"/>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:description" content="<%= @post.present? ? strip_tags(@post.content.truncate(150)) : "Rizkie Pratama Personal Weblog filled with random topic and notes" %>" />
+    <meta property="og:image" content="<%= @post.present? ? @post.thumb_url : image_url("logo_banner.png") %>" />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="480" />
     <%= stylesheet_link_tag  'global' %>
     <%= stylesheet_link_tag  'blog' %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
