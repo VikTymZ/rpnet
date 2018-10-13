@@ -1,4 +1,9 @@
 <% if !@post.nil? %>
+<% content_for :page_title do 
+     @post.title
+   end
+%>
+
 <div class="post-single">
 
   <div class="post-head">

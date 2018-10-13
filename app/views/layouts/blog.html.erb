@@ -2,11 +2,12 @@
 <html lang="en-US">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rizkie Pratama - Welcome</title>
+    <title>Rizkie Pratama - <%= yield(:page_title).present? ? yield(:page_title) : "Blog" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta property="og:site_name" content="Rizkie Pratama Blog" />
-    <meta property="og:url:domain" content="<%= request.base_url %>"/>
+    <meta property="og:title" content="Rizkie Pratama - <%= yield(:page_title).present? ? yield(:page_title) : "Blog" %>" />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:description" content="<%= @post.present? ? strip_tags(@post.content.truncate(150)) : "Rizkie Pratama Personal Weblog filled with random topic and notes" %>" />
     <meta property="og:image" content="<%= @post.present? ? @post.thumb_url : image_url("logo_banner.png") %>" />
@@ -51,6 +52,6 @@
     </footer>
 
     <!-- DISQUS -->
-    <script id="dsq-count-scr" src="//viktymz.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="<%= ENV["DISQUS_COUNT_TARGET_URL"] %>" async></script>
   </body>
 </html>
