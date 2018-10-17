@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
   get '/blog', to: 'blog#index'
   get '/blog/tags/:tag', to: 'blog#search_tag'
-  get '/blog/feed', to: 'blog#feed'
   get '/blog/:slug', to: 'blog#single'
+
+  # RSS FEED
+  get '/feed', to: 'blog#feed'
+  get '/blog/feed', to: 'blog#feed'
 end

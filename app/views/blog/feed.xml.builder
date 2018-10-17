@@ -15,8 +15,8 @@ xml.rss :version => "2.0",
     @posts.each do |post|
       xml.item do
         xml.title post.title
-        xml.link "#{request.base_url}/#{post.slug}"
-        xml.guid "#{request.base_url}/#{post.slug}"
+        xml.link "#{request.base_url}/blog/#{post.slug}"
+        xml.guid "#{request.base_url}/blog/#{post.slug}"
         xml.pubDate post.created_at.to_s(:rfc822)
         xml.content(:encode) { xml.cdata!(post.content) }
       end
