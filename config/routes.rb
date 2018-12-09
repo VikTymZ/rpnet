@@ -21,11 +21,11 @@ Rails.application.routes.draw do
     delete '/post/remove', to: 'post#remove'
   end
 
-  get '/blog', to: 'blog#index'
-  get '/blog/tags/:tag', to: 'blog#search_tag'
-  get '/blog/:slug', to: 'blog#single'
-
   # RSS FEED
   get '/feed', to: 'blog#feed'
   get '/blog/feed', to: 'blog#feed'
+
+  get '/blog', to: 'blog#index'
+  get '/blog/tags/:tag', to: 'blog#search_tag'
+  get '/blog/:slug', to: 'blog#single'
 end
