@@ -1,3 +1,5 @@
 <div id="post-editor" class="row">
-  <post-editor target="/post/create" token="<%= form_authenticity_token %>" xtoken="<%= session[:_csrf_token] %>"></post-editor>
+  <div class="coloumns">
+    <post-editor target="/posts/create" token="<%= form_authenticity_token %>" xtoken="<%= session[:_csrf_token] %>"></post-editor>
+  </div>
 </div>

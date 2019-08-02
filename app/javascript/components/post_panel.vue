@@ -1,7 +1,7 @@
 <template>
 <form class="row">
   <div class="columns small-12 button-group align-right">
-    <a href="/dashboard/post/new" class="button">Create New Post</a>
+    <a href="/dashboard/posts/new" class="button">Create New Post</a>
     <a class="button"><i class="fas fa-trash-alt"></i></a>
   </div>
 
@@ -28,7 +28,7 @@
 	  <td>{{post.is_published ? "Published" : "Drafted"}}</td>
 	  <td>{{post.created_at}}</td>
 	  <td>
-            <a v-bind:href="'/dashboard/post/edit/' + post.id"><i class="fas fa-edit"></i></a>
+            <a v-bind:href="'/dashboard/posts/edit/' + post.id"><i class="fas fa-edit"></i></a>
 	    <a v-on:click="removePost(post.id)"><i class="fas fa-trash-alt"></i></a>
           </td>
 	</tr>
@@ -53,7 +53,7 @@ export default {
   methods: {
     getPosts: function() {
       axios.post(
-        '/post',
+        '/posts',
         null,
         { headers: { 
             'Accept': 'application/json',
@@ -66,7 +66,7 @@ export default {
     },
     removePost: function(post_id) {
       axios.delete(
-        '/post/remove',
+        '/posts/remove',
         {
           params: {id: post_id},
           headers: {

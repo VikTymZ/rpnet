@@ -12,7 +12,7 @@
     </div>
     <div class="columns small-12">
       <div class="button-group">
-        <a v-on:click="openUploaderModal()" class="button">Upload Media</a>
+        <a v-on:click="uploadMedia()" class="button">Upload Media</a>
         <a v-on:click="closeModal()" class="button">Cancel</a>
       </div>
     </div>
@@ -24,21 +24,52 @@ const axios = require('axios');
 import Modal from 'components/modal_media_uploader.vue';
 
 export default {
-  props: ['media'],
+	props: {
+	  token: null,
+		xtoken: null,
+  },
 
   mounted() {
+	  this.getMediaList();
   },
 
   methods: {
+		getMediaList: function() {
+      axios.post(
+        '/media',
+        null,
+        {
+          headers: {
+            'X-CSRF-TOKEN' : this.xtoken
+          },
+          params: {
+            page: 1
+          }
+        }
+      ).then(response => {
+	      this.media = response.data;
+      });
+		},
+
 	  selectMedia: function(mediaUrl) {
+			console.log(this.token);
 		  this.$vuedals.close(mediaUrl);
 		},
 
-	  openUploaderModal: function() {
+	  uploadMedia: function() {
+			var parentModal = this;
 			this.$vuedals.open({
 			  title: "Upload Image",
 				component: Modal,
-				props: {},
+				props: {
+				  token: this.token,
+					xtoken: this.token,
+				},
+				onClose(shouldRefresh) {
+				  if(shouldRefresh) {
+				    parentModal.getMediaList();
+					}
+				},
 			});
 		},
 
@@ -49,6 +80,7 @@ export default {
   
   data() {
     return {
+		  media: null,
     }
   }
 }

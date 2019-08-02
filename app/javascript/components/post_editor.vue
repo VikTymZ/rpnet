@@ -4,60 +4,63 @@
     <input type="hidden" name="post[thumb_url]" v-bind:value="thumbnail.url">
     <div class="row">
       <div class="columns small-12 medium-8">
-	<input type="text" v-model="title" v-on:blur="generatePermalink()" name="post[title]" placeholder="Post Title">
+        <input type="text" v-model="title" v-on:blur="generatePermalink()" name="post[title]" placeholder="Post Title">
         <input type="hidden" v-bind:value="content" name="post[content]">
-	<div id="content-editor"></div>
+		    <div id="content-editor"></div>
       </div>
+
+
       <div class="columns small-12 medium-4">
         <div id="post-meta-info" class="callout editor-widget">
-	  <div class="row">
-	    <div class="columns small-12 medium-12">
+				  <div class="row">
+	          <div class="columns small-12 medium-12">
               <div class="editor-widget-header">
-                <h4 class="editor-widget-title">Publish</h4>
+					      <h4 class="editor-widget-title">Publish</h4>
               </div>
               <div class="editor-widget-body">
-		<ul>
-		  <li>
-                    <p>Status:</p>
-                    <select name=post[is_published]>
-                      <option value="true">Published</option>
-                      <option value="false">Drafted</option>
-                    </select>
-                  </li>
-		  <li><p>Permalink:</p><input type="text" name="post[slug]" v-bind:value="permalink" placeholder="Post URL" disabled="true"></li>
-		</ul>
+                <ul>
+		              <li>
+						        <p>Status:</p>
+						        <select name=post[is_published]>
+							        <option value="true">Published</option>
+							        <option value="false">Drafted</option>
+								    </select>
+					        </li>
+		              <li><p>Permalink:</p><input type="text" name="post[slug]" v-bind:value="permalink" placeholder="Post URL" disabled="true"></li>
+		            </ul>
               </div>
-	    </div>
-	    <div class="editor-widget-footer columns small-12 medium-12">
-              <div class="expanded button-group">
-		<input type="submit" value="Publish Post" class="button">
-	      </div>
-	    </div>
-	  </div>
+	          </div>
+	          <div class="editor-widget-footer columns small-12 medium-12">
+			        <div class="expanded button-group">
+		            <input type="submit" value="Publish Post" class="button">
+	            </div>
+	          </div>
+	        </div>
         </div>
 
-        <div class="callout editor-widget">
-	  <div class="editor-widget-header">
-	    <h4 class="editor-widget-title">Tags</h4>
-	  </div>
-	  <div class="editor-widget-body">
-	    <input v-model="tags" type="text" name="post[tags_str]" placeholder="Post Tags (use coma to seperate)">
-	  </div>
+		    <div class="callout editor-widget">
+	        <div class="editor-widget-header">
+	          <h4 class="editor-widget-title">Tags</h4>
+	        </div>
+	        <div class="editor-widget-body">
+	          <input v-model="tags" type="text" name="post[tags_str]" placeholder="Post Tags (use coma to seperate)">
+	        </div>
         </div>
 
         <div id="thumbnail-widget" class="callout editor-widget">
-	  <div class="editor-widget-header">
-	    <h4 class="editor-widget-title">Thumbnail</h4>
-	  </div>
-	  <div class="editor-widget-body">
+	        <div class="editor-widget-header">
+	          <h4 class="editor-widget-title">Thumbnail</h4>
+	        </div>
+
+	        <div class="editor-widget-body">
             <img v-bind:src="thumbnail.url">
             <div class="callout">
-	      <input type="file" ref="thumbnail" v-on:change="handleThumb()">
+	            <input type="file" ref="thumbnail" v-on:change="handleThumb()">
               <a v-on:click="uploadMedia()" class="expanded button">Upload Thumbnail</a>
-              <a v-on:click="openMedia()" class="expanded button">Choose From Media</a>
+              <a v-on:click="openMediaPicker(true)" class="expanded button">Choose From Media</a>
               <vuedal></vuedal>
             </div>
-	  </div>
+	        </div>
         </div>
       </div>
     </div>
@@ -67,7 +70,7 @@
 <script>
 import Quill from 'quill';
 import {Component as Vuedal, Bus as VuedalsBus} from 'vuedals';
-import Modal from 'components/modal_media.vue';
+import Modal from 'components/modal_media_browser.vue';
 const axios = require('axios');
 
 export default({
@@ -85,27 +88,32 @@ export default({
   mounted() {
     this.editor = new Quill("#content-editor",{
       modules: {
-	toolbar: [
-          ['bold', 'italic', 'underline', 'strike'],
-          ['blockquote', 'code-block'],
+				toolbar: {
+					container: [
+	          ['bold', 'italic', 'underline', 'strike'],
+  	        ['blockquote', 'code-block'],
 
-          ['link','image'],
+    	      ['link','image'],
 
-          [{ 'header': 1 }, { 'header': 2 }],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          [{ 'script': 'sub'}, { 'script': 'super' }],
-          [{ 'indent': '-1'}, { 'indent': '+1' }],
-          [{ 'direction': 'rtl' }],
+	          [{ 'header': 1 }, { 'header': 2 }],
+  	        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    	      [{ 'script': 'sub'}, { 'script': 'super' }],
+      	    [{ 'indent': '-1'}, { 'indent': '+1' }],
+        	  [{ 'direction': 'rtl' }],
 
-          [{ 'size': ['small', false, 'large', 'huge'] }],
-          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          	[{ 'size': ['small', false, 'large', 'huge'] }],
+          	[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
-          [{ 'color': [] }, { 'background': [] }],
-          [{ 'font': [] }],
-          [{ 'align': [] }],
+          	[{ 'color': [] }, { 'background': [] }],
+          	[{ 'font': [] }],
+          	[{ 'align': [] }],
 
-          ['clean']
-	]
+          	['clean']
+					],
+					handlers: {
+						image: this.imageHandler
+					}
+				}
       },
       theme: "snow",
       placeholder: "Write Something Incredible..."
@@ -135,7 +143,6 @@ export default({
 
     handleThumb: function() {
       this.thumbnail.file = this.$refs.thumbnail.files[0];
-      console.log(this.thumbnail.file);
     },
 
     uploadMedia: function() {
@@ -160,29 +167,34 @@ export default({
       });
     },
 
-    openMedia: function() {
-      axios.post(
-        '/media',
-        null,
-        {
-          headers: {
-            'X-CSRF-TOKEN' : this.xtoken
-          },
-          params: {
-            page: 1
-          }
-        }
-      ).then(response => {
-	this.$vuedals.open({
-	  title: "Media Explorer",
-	  component: Modal,
-	  props: {
-	    media: response.data
-	  }
-	});
-      });
+    openMediaPicker: function(isThumb = false) {
+				var editor = this.editor;
+        var thumbnail = this.thumbnail;
+	      this.$vuedals.open({
+	        title: "Media Explorer",
+	        component: Modal,
+	        props: {
+						token: this.token,
+						xtoken: this.xtoken,
+	        },
+          onClose(imageUrl) {
+						if(imageUrl == null) {
+						  return 0;
+						}
+
+						if(isThumb) {
+              thumbnail.url = imageUrl;
+						} else {
+	            var range = editor.getSelection();
+	            editor.insertEmbed(range.index, 'image', imageUrl, Quill.sources.USER);
+					  }
+					}
+	      });
     },
 
+    imageHandler: function() {
+	    this.openMediaPicker(); //prompt('What is the image URL');
+    },
   },
 
   data() {

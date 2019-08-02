@@ -13,21 +13,38 @@
 
   <body>
     <nav id="navigation-bar">
-      <div class="row align-middle align-center">
-        <div id="nav-ico-block" class="columns medium-2 small-12">
-        </div>
+      <div class="align-middle align-center">
         <div id="nav-ico-block" class="columns medium-8 small-12">
-          <a href="/dashboard"><h1 id="site-ico">Rizkie <span class="ico-last">Pratama</span></h1></a>
+          <button id="toggle-menu" class="hamburger-box">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a id="site-ico" href="/dashboard"><h1 class="ico-text">Rizkie <span class="ico-f1">Pratama</span></h1></a>
         </div>
-        <div id="nav-ico-block" class="columns medium-2 small-12">
+        <div class="columns medium-4 small-12">
         </div>
       </div>
     </nav>
 
-    <div id="dashboard">
-      <%= yield %>
+    <div id="dashboard" class="dashboard-wrap">
+      <div id="dashboard-menu" class="dashboard-drawer-menu">
+        <ul id="global-menu" class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
+          <li>
+            <a href="/dashboard/posts"><i class="menu-icon fas fa-th-list"></i><span class="menu-text">Post</span></a>
+            <ul class="vertical menu nested">
+              <li><a href="/dashboard/posts/new">Create New Post</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href=""><i class="menu-icon fas fa-cogs"></i><span class="menu-text">Settings</span></a>
+          </li>
+        </ul>
+      </div>
+      <div id="dashboard-content" class="dashboard-container">
+        <%= yield %>
+      </div>
     </div>
 
+    <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'dashboard' %>
   </body>
 </html>

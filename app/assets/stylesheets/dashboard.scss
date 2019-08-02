@@ -1,7 +1,7 @@
 @import url(asset-path('quill/dist/quill.snow.css'));
 
 body {
-  background-color: #F0F0F0;
+  background-color: #FAFAFA;
 }
 
 .button,
@@ -11,24 +11,108 @@ thead {
 }
 
 #navigation-bar {
-  background-color: #252525;
+  background-color: #FAFAFA;
+	border-bottom: solid 2px #DADADA;
+	box-shadow: 0px 1px 4px 1px #50252525;
   z-index: 999999;
 }
 
 #nav-ico-block a {
-  color: #FAFAFA;
+  color: #252525;
 }
 
 #nav-ico-block a,
 #nav-ico-block a h1 {
   width: -moz-fit-content;
   width: fit-content;
-  margin: auto;
 }
 
 #dashboard {
   padding-top: 75px;
   padding-bottom: 75px;
+
+	h4 {
+	  text-transform: uppercase;
+		font-size: 18px;
+		font-weight: bold;
+	}
+}
+
+.dashboard-wrap {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+
+	.dashboard-drawer-menu {
+	  width: 200px;
+		content: "";
+		position: absolute;
+		background: #F6F6F6;
+		top: 0;
+		left: 0;
+		padding-top: 75px;
+		height: 100%;
+
+		.menu-text {
+		  font-weight: normal;
+		}
+
+		.nested {
+		  a {
+		    font-size: 12px;
+				padding-left: 3rem;
+      }
+		}
+	}
+
+	.dashboard-drawer-menu.collapse {
+	  width: 75px;
+	  text-align: center;
+
+    #global-menu > li > a {
+		  padding: 1rem 0;
+		}
+
+		.menu-icon {
+		  width: 100%;
+		}
+
+		.menu-text {
+		  font-size: 8px;
+			padding: 0px;
+			display: inline-block;
+		}
+
+		.nested {
+		  display: none;
+		}
+	}
+
+	.dashboard-container {
+	  margin-left: 200px;
+		width: 100%;
+		padding: 2rem;
+	}
+
+	.dashboard-container.collapse {
+	  margin-left: 50px;
+	}
+}
+
+#global-menu {
+  list-style: none;
+
+	> li > a {
+	  padding: 1rem 2rem;
+	}
+
+	a:hover {
+	  background-color: #F0F0F0;
+	}
+
+	.nested {
+	  margin: 0px;
+	}
 }
 
 #editor {
@@ -182,4 +266,57 @@ thead {
     text-transform: uppercase;
     font-size: 1.2em;
   }
+}
+
+h1.page-heading {
+  font-size: 19px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+
+.dashboard-block-wrap {
+  border-radius: 5px;
+	border: solid 1px #D5D5D5;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.metric {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.metric-grid {
+ list-style: none;
+ margin-left: -0.75rem;
+ margin-right: -0.75rem;
+}
+
+.metric-item-wrap {
+	padding: 10px;
+	float: left;
+	width: 33.3%;
+}
+
+.metric-item {
+	background-color: #F0F0F0;
+	border: 1px solid 1px #FAFAFA;
+	border-radius: 5px;
+	padding: 10px;
+
+	h5, .metric-count {
+		font-size: 15px;
+		text-align: center;
+	}
+}
+
+.user-badge {
+	display: inline-block;
+
+  h3 {
+		padding: 0px;
+	  font-weight: bold;
+		font-size: 15px;
+	}
 }

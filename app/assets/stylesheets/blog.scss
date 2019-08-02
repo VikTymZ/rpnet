@@ -89,7 +89,7 @@
 
 .post-single {
    .meta-container {
-     max-width: 650px;
+     max-width: 730px;
      margin: auto;
 
      .meta-tags {
@@ -120,13 +120,13 @@
   .post-head {
     .title {
       margin: 0 0 20px;
-      font-weight: bold;
       line-height: 1em;
+      font-size: 2.5em;
+			font-weight: 700;
     }
   }
 
   .post-head-heroes {
-    min-height: 70vh;
     width: 100%;
     background: no-repeat center center;
     background-size: cover;
@@ -134,11 +134,20 @@
     margin-top: 30px;
    }
 
+  .post-body p {
+	  font-size: 1.1em;
+		font-weight: 300;
+	}
+
   .post-body,
   .post-foot-note,
   .comment-section {
     max-width: 650px;
     margin: auto auto 30px;
+
+		p {
+		  margin: 0px;
+		}
   }
 
   .comment-section {

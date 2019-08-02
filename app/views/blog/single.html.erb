@@ -21,7 +21,8 @@
       </div>
     </div>
 
-    <div class="post-head-heroes" style="background-image: url(<%= @post.thumb_url.nil? ? image_url("no-thumbnail.jpg") : @post.thumb_url %>)">
+    <div class="post-head-heroes">
+      <img src="<%= @post.thumb_url.nil? ? image_url("no-thumbnail.jpg") : @post.thumb_url %>">
     </div>
   </div>
 

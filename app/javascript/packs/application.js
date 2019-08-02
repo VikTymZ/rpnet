@@ -6,3 +6,11 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+
+document.getElementById("toggle-menu").addEventListener("click", toggleMenu, false);
+
+function toggleMenu() {
+  document.getElementById("dashboard-content").classList.toggle("collapse");
+  document.getElementById("dashboard-menu").classList.toggle("collapse");
+};
+
