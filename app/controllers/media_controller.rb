@@ -19,6 +19,6 @@ class MediaController < ApplicationController
   end
 
   def fetch
-    render :json => Media.paginate(:page => params[:page], per_page: 5 ).order('created_at DESC')
+    render :json => Media.paginate(:page => params[:page], per_page: 10 ).order('created_at DESC')
   end
 end
