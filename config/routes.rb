@@ -9,16 +9,17 @@ Rails.application.routes.draw do
     get '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
 
     get '/dashboard', to: 'dashboard#index'
-    get '/dashboard/post/new', to: 'dashboard#new'
-    get '/dashboard/post/edit/:id', to: 'dashboard#edit'
+    get '/dashboard/posts', to: 'dashboard#posts'
+    get '/dashboard/posts/new', to: 'dashboard#new'
+    get '/dashboard/posts/edit/:id', to: 'dashboard#edit'
 
     post '/media', to: 'media#fetch'
     post '/media/upload', to: 'media#upload'
 
-    post '/post', to: 'post#get'
-    post '/post/create', to: 'post#create'
-    post '/post/edit/:id', to: 'post#edit'
-    delete '/post/remove', to: 'post#remove'
+    post '/posts', to: 'post#get'
+    post '/posts/create', to: 'post#create'
+    post '/posts/edit/:id', to: 'post#edit'
+    delete '/posts/remove', to: 'post#remove'
   end
 
   # RSS FEED
