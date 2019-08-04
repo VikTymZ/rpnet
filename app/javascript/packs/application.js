@@ -7,10 +7,25 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-document.getElementById("toggle-menu").addEventListener("click", toggleMenu, false);
+import Typed from 'typed.js';
 
-function toggleMenu() {
-  document.getElementById("dashboard-content").classList.toggle("collapse");
-  document.getElementById("dashboard-menu").classList.toggle("collapse");
-};
+document.addEventListener("DOMContentLoaded", function(event) {
+  
+	var toggle = document.getElementById("toggle-menu");
+	if(toggle) {
+	  toggle.addEventListener("click", toggleMenu, false);
+  }
+
+  function toggleMenu() {
+    document.getElementById("dashboard-content").classList.toggle("collapse");
+    document.getElementById("dashboard-menu").classList.toggle("collapse");
+  };
+
+  var typed = new Typed('#things-i-do', {
+    strings: ["^1000 Video Game ^3000", "^1000 Website ^3000", "^1000 Software ^3000"],
+	  typeSpeed: 60,
+		backSpeed: 80,
+		loop: true,
+  });
+});
 

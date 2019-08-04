@@ -48,33 +48,11 @@
     padding-left: 20px;
   }
 
-  #bi-profile {
-     margin-bottom: 40px;
-  }
 
   #bi-profile-pic {
     display: block;
     content: "";
-    width: 70%;
-    max-width: 250px;
-    height: 30%;
-    min-height: 300px;
-    max-height: 400px;
-    background: no-repeat center center;
-    background-size: cover;
-    margin: 40px auto;
-  }
-
-  #bi-profile-pic:before {
-    display: block;
-    content: "";
-    width: 100px;
-    height: 200px;
-    background: #252525;
-    position: relative;
-    top: 130px;
-    right: 40px;
-    z-index: -10;
+		margin-bottom: 25px;
   }
   
   #bi-profile-desc-container {
