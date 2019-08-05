@@ -12,6 +12,10 @@
       <div class="row">
         <div class="columns small-12">
           <h1 class="title"><%= @post.title %></h1>
+          <div class="meta-date">
+            <i class="fas fa-calendar-day"></i>
+            <span><%= @post.created_at.to_formatted_s(:mdy_format) %></span>
+          </div>
           <ul class="meta-tags">
           <% @post.tags.each do |tag| %>
             <li><a href="/blog/tags/<%= URI.encode(tag.name.downcase) %>"><%= tag.name %></a></li>
