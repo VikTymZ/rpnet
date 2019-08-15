@@ -1,4 +1,4 @@
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(asset-path('quill/dist/quill.snow.css'));
 
 .ql-align-left {
   text-align: left;
@@ -14,6 +14,17 @@
 
 .ql-align-justify {
   text-align: justify;
+}
+
+pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
 }
 
 #blog-body {
@@ -146,22 +157,20 @@
    }
 
   .post-body p {
-	  font-size: 1em;
-		font-weight: 300;
-	}
+    font-size: 1em;
+    font-weight: 300;
+  }
 
   .post-body,
   .post-foot-note,
   .comment-section {
-    max-width: 650px;
+    width: 100%;
+    max-width: 750px;
     margin: auto auto 30px;
 
-		p {
-		  margin: 0px;
-		}
-  }
-
-  .comment-section {
+    p {
+      margin: 0px;
+    }
   }
 }
 
@@ -228,4 +237,36 @@
   width: -moz-fit-content; 
   width: fit-content;
   margin-top: 10px; 
+}
+
+@media  print, screen and  (max-width: 640px) {
+  #blog-roll {
+    margin-bottom: 30px;
+  }
+  #blog-body {
+    padding-top: 110px;
+  }
+}
+
+@media  print, screen and  (max-width: 780px) {
+  .post-body,
+  .post-foot-note,
+  .comment-section {
+    padding: 0px 30px;
+  }
+
+  .post-single {
+    .post-head-heroes {
+      margin-bottom: 30px;
+    }
+    .post-head {
+      .title {
+        font-size: 1.9em;
+      }
+    }
+  }
+
+  .thumb-box {
+    margin-bottom: 10px;
+  }
 }
