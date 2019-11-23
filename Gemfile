@@ -6,7 +6,7 @@ ruby '~> 2.6.0'
 # Webpacker
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.2.3'
+gem 'rails', '5.2.4.rc1'
 gem 'foreman'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
