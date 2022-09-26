@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 2.7.0'
+ruby '~> 3.0.0'
 
-# Webpacker
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+# jsbundling-rails
+gem 'jsbundling-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.4.rc1'
+gem 'rails', '7.0.4'
 gem 'foreman'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
