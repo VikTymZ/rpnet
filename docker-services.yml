@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: "{$RPNET_DATABASE}"
+      POSTGRES_USER: "${RPNET_DATABASE_USER}"
+      POSTGRES_PASSWORD: "${RPNET_DATABASE_PASS}"
+
+  rpnet:
+    build: .
+    volumes:
+      - $PWD:/opt/rpnet
+    image: rpnet
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: db
+      RPNET_DATABASE_USER: 
+      RPNET_DATABASE_PASS: 
+      RAILS_ENV:
+    volumes:
+      - .:/opt/rpnet
