@@ -1,79 +1,27 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
 version: 2
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-       - image: circleci/ruby:2.7.0-node-browsers
-         environment:
-           RAILS_ENV: test
-           RACK_ENV: test
-           RPNET_DATABASE_USER: cci_test
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-       - image: circleci/postgres:12.4-postgis
-         environment:
-           POSTGRES_USER: cci_test
-           POSTGRES_DB: rpnet_test
-
     working_directory: ~/repo
+    docker:
+      - image: docker:20.10.21-git
 
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
+      - setup_remote_docker
       - run:
-          name: install ruby gem dependencies
+          name: install dependencies
           command: |
-            gem install bundler
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            apk add --no-cache py-pip
+            pip install docker-compose==1.25.0
 
       - run:
-          name: install npm / yarn dependencies
+          name: Build App Docker Image
           command: |
-            npm install
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      # Wait for DB to Start
-      - run:
-          name: Wait for PostgreSQL to start
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+            docker-compose build
 
       # run tests!
       - run:
           name: run tests
           command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+            docker-compose run --rm rpnet rails db:migrate RAILS_ENV=test
+            docker-compose run --rm rpnet bundle exec rspec
